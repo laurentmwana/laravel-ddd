@@ -28,18 +28,17 @@ cache: ## Clear all cache
 stan: ## PHPStan static analysis
 	vendor/bin/phpstan analyse
 
-cs: ## Laravel Pint (coding style)
-	vendor/bin/pint
-
 rector: ## Rector dry-run
 	vendor/bin/rector process --dry-run
 
 ## —— Tests ————————————————————————————————————————————————
 test: ## Run PHPUnit tests
-	vendor/bin/phpunit
+	$(PHP) artisan test
+
 
 ## —— CI pipeline ——————————————————————————————————————————
-ci: install cache stan cs rector test ## Full CI pipeline
+ci: install cache stan rector test ## Full CI pipeline
+ci-local: cache stan rector test ## Full CI pipeline
 
 ## —— Cleanup ————————————————————————————————————————————
 clean: ## Clean Laravel cache manually

@@ -15,18 +15,18 @@ use Spatie\Permission\Traits\HasRoles;
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable implements MustVerifyEmail
 {
-   use HasFactory, Notifiable, HasApiTokens, HasRoles;
+    use HasApiTokens, HasFactory, HasRoles, Notifiable;
 
-   /**
-    * Get the attributes that should be cast.
-    *
-    * @return array<string, string>
-    */
-   protected function casts(): array
-   {
-      return [
-         'email_verified_at' => 'datetime',
-         'password' => 'hashed',
-      ];
-   }
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
 }
