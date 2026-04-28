@@ -34,3 +34,5 @@ jobs:
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
         run: make test
+      - name: Run quality checks
+        run: make quality
