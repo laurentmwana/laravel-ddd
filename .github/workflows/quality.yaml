@@ -20,8 +20,18 @@ jobs:
           php-version: "8.4"
           extensions: mbstring, bcmath, xml, curl, sqlite
 
+      - name: Create SQLite database
+        run: |
+          mkdir -p database
+          touch database/database.sqlite
+
       - name: Copy .env
         run: cp .env.example .env
+
+      - name: Create Database
+        run: |
+          mkdir -p database
+          touch database/database.sqlite
 
       - name: Install dependencies
         run: make install
