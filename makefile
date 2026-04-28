@@ -39,6 +39,7 @@ test: ## Run PHPUnit tests
 ## —— CI pipeline ——————————————————————————————————————————
 ci: install cache stan rector test ## Full CI pipeline
 ci-local: cache stan rector test ## Full CI pipeline
+quality: cache stan rector  ## Full CI pipeline
 
 ## —— Cleanup ————————————————————————————————————————————
 clean: ## Clean Laravel cache manually
